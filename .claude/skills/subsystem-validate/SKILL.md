@@ -23,7 +23,7 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/subsystem-validate.ps1" -SubsystemPath "Subsystems/Продажи"
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/subsystem-validate.ps1" -SubsystemPath "Subsystems/Продажи.xml"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/subsystem-validate.py" -SubsystemPath "Subsystems/Продажи"
+python3 "${CLAUDE_SKILL_DIR}/scripts/subsystem-validate.py" -SubsystemPath "Subsystems/Продажи.xml"
 ```

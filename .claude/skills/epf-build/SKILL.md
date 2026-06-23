@@ -39,8 +39,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/epf-build.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/epf-build.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -60,10 +60,10 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/epf-build.ps1" <п�
 
 ## Примеры
 
-```powershell
+```bash
 # Сборка обработки (файловая база)
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/epf-build.ps1" -InfoBasePath "C:\Bases\MyDB" -SourceFile "src/МояОбработка.xml" -OutputFile "build/МояОбработка.epf"
+python3 "${CLAUDE_SKILL_DIR}/scripts/epf-build.py" -InfoBasePath "~/bases/MyDB" -SourceFile "src/МояОбработка.xml" -OutputFile "build/МояОбработка.epf"
 
 # Серверная база
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/epf-build.ps1" -InfoBaseServer "srv01" -InfoBaseRef "MyDB" -UserName "Admin" -Password "secret" -SourceFile "src/МояОбработка.xml" -OutputFile "build/МояОбработка.epf"
+python3 "${CLAUDE_SKILL_DIR}/scripts/epf-build.py" -InfoBaseServer "srv01" -InfoBaseRef "MyDB" -UserName "Admin" -Password "secret" -SourceFile "src/МояОбработка.xml" -OutputFile "build/МояОбработка.epf"
 ```

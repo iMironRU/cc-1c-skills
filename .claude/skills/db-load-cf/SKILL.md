@@ -35,8 +35,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-cf.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-cf.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -61,13 +61,13 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-cf.ps1" <п
 
 ## Примеры
 
-```powershell
+```bash
 # Файловая база
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-cf.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -InputFile "C:\backup\config.cf"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-cf.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -InputFile "C:\backup\config.cf"
 
 # Серверная база
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-cf.ps1" -InfoBaseServer "srv01" -InfoBaseRef "MyApp_Test" -UserName "Admin" -Password "secret" -InputFile "config.cf"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-cf.py" -InfoBaseServer "srv01" -InfoBaseRef "MyApp_Test" -UserName "Admin" -Password "secret" -InputFile "config.cf"
 
 # Загрузка расширения
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-cf.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -InputFile "ext.cfe" -Extension "МоёРасширение"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-cf.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -InputFile "ext.cfe" -Extension "МоёРасширение"
 ```

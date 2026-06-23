@@ -23,13 +23,13 @@ allowed-tools:
 | `Vendor` | Поставщик |
 | `CompatibilityMode` | Режим совместимости (default: `Version8_3_24`) |
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/cf-init.ps1" -Name "МояКонфигурация"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/cf-init.py" -Name "МояКонфигурация"
 ```
 
 ## Примеры
 
-```powershell
+```bash
 # Базовая конфигурация
 ... -Name МояКонфигурация -Synonym "Моя конфигурация" -OutputDir test-tmp/cf
 

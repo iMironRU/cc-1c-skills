@@ -51,8 +51,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-dt.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-dt.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -78,12 +78,12 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-dt.ps1" <п
 
 ## Примеры
 
-```powershell
+```bash
 # Файловая база
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-dt.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -InputFile "C:\backup\base.dt"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-dt.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -InputFile "C:\backup\base.dt"
 
 # Серверная база с ускорением загрузки
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-dt.ps1" -InfoBaseServer "srv01" -InfoBaseRef "MyApp_Test" -UserName "Admin" -Password "secret" -InputFile "base.dt" -JobsCount 4
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-dt.py" -InfoBaseServer "srv01" -InfoBaseRef "MyApp_Test" -UserName "Admin" -Password "secret" -InputFile "base.dt" -JobsCount 4
 ```
 
 ## Связанные навыки

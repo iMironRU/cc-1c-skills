@@ -14,56 +14,8 @@ import subprocess
 import sys
 import tempfile
 
-
-def _find_project_v8path():
-    """Walk up from CWD to find .v8-project.json and read its v8path."""
-    d = os.getcwd()
-    while True:
-        pf = os.path.join(d, ".v8-project.json")
-        if os.path.isfile(pf):
-            try:
-                with open(pf, encoding="utf-8-sig") as f:
-                    data = json.load(f)
-                v = data.get("v8path")
-                if v:
-                    return v
-            except Exception:
-                pass
-            return None
-        parent = os.path.dirname(d)
-        if parent == d:
-            return None
-        d = parent
-
-
-def _version_key(p):
-    """Numeric sort key from version dir name (.../1cv8/<ver>/bin/1cv8.exe)."""
-    ver = os.path.basename(os.path.dirname(os.path.dirname(p)))
-    return [int(x) for x in re.findall(r"\d+", ver)]
-
-
-def resolve_v8path(v8path):
-    """Resolve path to 1cv8.exe."""
-    if not v8path:
-        v8path = _find_project_v8path()
-    if not v8path:
-        candidates = (
-            glob.glob(r"C:\Program Files\1cv8\*\bin\1cv8.exe")
-            + glob.glob(r"C:\Program Files (x86)\1cv8\*\bin\1cv8.exe")
-        )
-        if candidates:
-            v8path = max(candidates, key=_version_key)
-            ver = os.path.basename(os.path.dirname(os.path.dirname(v8path)))
-            print(f"Auto-selected platform {ver}: {v8path}")
-        else:
-            print("Error: 1cv8.exe not found. Specify -V8Path", file=sys.stderr)
-            sys.exit(1)
-    if os.path.isdir(v8path):
-        v8path = os.path.join(v8path, "1cv8.exe")
-    if not os.path.isfile(v8path):
-        print(f"Error: 1cv8.exe not found at {v8path}", file=sys.stderr)
-        sys.exit(1)
-    return v8path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '_lib'))
+from v8_platform import resolve_v8path, detect_engine
 
 
 def main():
@@ -73,7 +25,7 @@ def main():
         description="Dump 1C configuration to XML files",
         allow_abbrev=False,
     )
-    parser.add_argument("-V8Path", default="", help="Path to 1cv8.exe or its bin directory")
+    parser.add_argument("-V8Path", default="", help="Path to 1cv8 or its bin directory")
     parser.add_argument("-InfoBasePath", default="", help="Path to file infobase")
     parser.add_argument("-InfoBaseServer", default="", help="1C server (for server infobase)")
     parser.add_argument("-InfoBaseRef", default="", help="Infobase name on server")
@@ -211,7 +163,7 @@ def main():
         arguments.append("/DisableStartupDialogs")
 
         # --- Execute ---
-        print(f"Running: 1cv8.exe {' '.join(arguments)}")
+        print(f"Running: 1cv8 {' '.join(arguments)}")
         result = subprocess.run(
             [v8path] + arguments,
             capture_output=True,

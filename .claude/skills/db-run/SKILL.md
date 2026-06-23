@@ -35,8 +35,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-run.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-run.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -61,16 +61,16 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-run.ps1" <пар
 
 ## Примеры
 
-```powershell
+```bash
 # Простой запуск
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-run.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-run.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin"
 
 # Запуск с обработкой
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-run.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -Execute "C:\epf\МояОбработка.epf"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-run.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -Execute "C:\epf\МояОбработка.epf"
 
 # Открыть по навигационной ссылке
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-run.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -URL "e1cib/data/Справочник.Номенклатура"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-run.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -URL "e1cib/data/Справочник.Номенклатура"
 
 # Серверная база с параметром запуска
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-run.ps1" -InfoBaseServer "srv01" -InfoBaseRef "MyDB" -UserName "Admin" -Password "secret" -CParam "ЗапуститьОбновление"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-run.py" -InfoBaseServer "srv01" -InfoBaseRef "MyDB" -UserName "Admin" -Password "secret" -CParam "ЗапуститьОбновление"
 ```

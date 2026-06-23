@@ -30,8 +30,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/remove-form.ps1" -ObjectName "<ObjectName>" -FormName "<FormName>" [-SrcDir "<SrcDir>"]
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/remove-form.py" -ObjectName "<ObjectName>" -FormName "<FormName>" [-SrcDir "<SrcDir>"]
 ```
 
 ## Что удаляется

@@ -102,7 +102,7 @@ allowed-tools:
 
 Если `v8path` не задан в конфиге:
 
-```powershell
+```bash
 $v8 = Get-ChildItem "C:\Program Files\1cv8\*\bin\1cv8.exe" | Sort-Object -Descending | Select-Object -First 1
 ```
 

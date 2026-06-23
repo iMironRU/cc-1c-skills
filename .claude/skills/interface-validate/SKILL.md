@@ -23,7 +23,7 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/interface-validate.ps1" -CIPath "Subsystems/Продажи"
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/interface-validate.ps1" -CIPath "Subsystems/Продажи/Ext/CommandInterface.xml"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/interface-validate.py" -CIPath "Subsystems/Продажи"
+python3 "${CLAUDE_SKILL_DIR}/scripts/interface-validate.py" -CIPath "Subsystems/Продажи/Ext/CommandInterface.xml"
 ```

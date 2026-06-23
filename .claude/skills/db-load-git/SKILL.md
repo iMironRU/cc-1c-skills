@@ -37,8 +37,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-git.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-git.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -68,10 +68,10 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-git.ps1" <�
 
 ## Примеры
 
-```powershell
+```bash
 # Все незафиксированные изменения
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-git.ps1" -V8Path "C:\Program Files\1cv8\8.3.25.1257\bin" -InfoBasePath "C:\Bases\MyDB" -ConfigDir "C:\WS\cfsrc" -Source All -UpdateDB
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-git.py" -V8Path "C:\Program Files\1cv8\8.3.25.1257\bin" -InfoBasePath "~/bases/MyDB" -ConfigDir "C:\WS\cfsrc" -Source All -UpdateDB
 
 # Из диапазона коммитов
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-git.ps1" -InfoBasePath "C:\Bases\MyDB" -ConfigDir "C:\WS\cfsrc" -Source Commit -CommitRange "HEAD~3..HEAD"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-git.py" -InfoBasePath "~/bases/MyDB" -ConfigDir "C:\WS\cfsrc" -Source Commit -CommitRange "HEAD~3..HEAD"
 ```

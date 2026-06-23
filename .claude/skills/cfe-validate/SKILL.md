@@ -23,7 +23,7 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/cfe-validate.ps1" -ExtensionPath "src"
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/cfe-validate.ps1" -ExtensionPath "src/Configuration.xml"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/cfe-validate.py" -ExtensionPath "src"
+python3 "${CLAUDE_SKILL_DIR}/scripts/cfe-validate.py" -ExtensionPath "src/Configuration.xml"
 ```

@@ -21,12 +21,12 @@ allowed-tools:
 | `Value` | JSON-строка с определением СКД (взаимоисключающий с DefinitionFile) |
 | `OutputPath` | Путь к выходному Template.xml |
 
-```powershell
+```bash
 # Из файла
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/skd-compile.ps1" -DefinitionFile "<json>" -OutputPath "<Template.xml>"
+python3 "${CLAUDE_SKILL_DIR}/scripts/skd-compile.py" -DefinitionFile "<json>" -OutputPath "<Template.xml>"
 
 # Из строки (без промежуточного файла)
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/skd-compile.ps1" -Value '<json-string>' -OutputPath "<Template.xml>"
+python3 "${CLAUDE_SKILL_DIR}/scripts/skd-compile.py" -Value '<json-string>' -OutputPath "<Template.xml>"
 ```
 
 ## JSON DSL — краткий справочник

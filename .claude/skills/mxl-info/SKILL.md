@@ -37,17 +37,17 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/mxl-info.ps1" -TemplatePath "<путь>"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/mxl-info.py" -TemplatePath "<путь>"
 ```
 
 Или по имени обработки/макета:
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/mxl-info.ps1" -ProcessorName "<Имя>" -TemplateName "<Макет>" [-SrcDir "<каталог>"]
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/mxl-info.py" -ProcessorName "<Имя>" -TemplateName "<Макет>" [-SrcDir "<каталог>"]
 ```
 
 Дополнительные флаги:
-```powershell
+```bash
 ... -WithText              # включить текстовое содержимое ячеек
 ... -Format json           # JSON-вывод для программной обработки
 ... -MaxParams 20          # показать больше параметров на область

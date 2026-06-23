@@ -23,7 +23,7 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/meta-validate.ps1" -ObjectPath "Catalogs/Номенклатура/Номенклатура.xml"
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/meta-validate.ps1" -ObjectPath "Catalogs/Банки|Documents/Заказ"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/meta-validate.py" -ObjectPath "Catalogs/Номенклатура/Номенклатура.xml"
+python3 "${CLAUDE_SKILL_DIR}/scripts/meta-validate.py" -ObjectPath "Catalogs/Банки|Documents/Заказ"
 ```

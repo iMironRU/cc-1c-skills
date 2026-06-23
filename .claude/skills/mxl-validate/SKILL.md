@@ -22,8 +22,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/mxl-validate.ps1" -TemplatePath "Catalogs/Номенклатура/Templates/Макет"
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/mxl-validate.ps1" -TemplatePath "src/МояОбработка/Templates/ПечатнаяФорма"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/mxl-validate.py" -TemplatePath "Catalogs/Номенклатура/Templates/Макет"
+python3 "${CLAUDE_SKILL_DIR}/scripts/mxl-validate.py" -TemplatePath "src/МояОбработка/Templates/ПечатнаяФорма"
 ```
 

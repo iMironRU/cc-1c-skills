@@ -22,6 +22,6 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/role-validate.ps1" -RightsPath "Roles/МояРоль"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/role-validate.py" -RightsPath "Roles/МояРоль"
 ```

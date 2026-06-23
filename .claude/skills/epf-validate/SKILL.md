@@ -23,8 +23,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/epf-validate.ps1" -ObjectPath "src/МояОбработка"
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/epf-validate.ps1" -ObjectPath "src/МояОбработка/МояОбработка.xml"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/epf-validate.py" -ObjectPath "src/МояОбработка"
+python3 "${CLAUDE_SKILL_DIR}/scripts/epf-validate.py" -ObjectPath "src/МояОбработка/МояОбработка.xml"
 ```
 

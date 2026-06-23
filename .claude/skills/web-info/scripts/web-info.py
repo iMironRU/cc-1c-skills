@@ -47,7 +47,7 @@ def main():
         apache_path = os.path.join(project_root, 'tools', 'apache24')
 
     # --- Check Apache installation ---
-    httpd_exe = os.path.join(apache_path, 'bin', 'httpd.exe')
+    httpd_exe = os.path.join(apache_path, 'bin', 'httpd')
 
     print('=== Apache Web Server ===')
 

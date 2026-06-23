@@ -20,8 +20,8 @@ allowed-tools:
 | `JsonPath` | Путь к JSON-определению роли |
 | `OutputDir` | Корень выгрузки конфигурации (где `Configuration.xml`, `Roles/` и т.д.) |
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/role-compile.ps1" -JsonPath "<json>" -OutputDir "<ConfigDir>"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/role-compile.py" -JsonPath "<json>" -OutputDir "<ConfigDir>"
 ```
 
 Создаёт `{OutputDir}/Roles/Имя.xml` и `{OutputDir}/Roles/Имя/Ext/Rights.xml`. Регистрирует `<Role>` в `Configuration.xml`.

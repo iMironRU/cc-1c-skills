@@ -40,8 +40,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-publish.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-publish.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -86,16 +86,16 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-publish.ps1" <�
 
 ## Примеры
 
-```powershell
+```bash
 # Файловая база
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-publish.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin"
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-publish.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin"
 
 # С явным именем публикации и портом
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-publish.ps1" -InfoBasePath "C:\Bases\MyDB" -AppName "mydb" -Port 9090
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-publish.py" -InfoBasePath "~/bases/MyDB" -AppName "mydb" -Port 9090
 
 # Серверная база
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-publish.ps1" -InfoBaseServer "srv01" -InfoBaseRef "MyDB" -UserName "Admin" -Password "secret"
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-publish.py" -InfoBaseServer "srv01" -InfoBaseRef "MyDB" -UserName "Admin" -Password "secret"
 
 # Ручной режим (только инструкция)
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-publish.ps1" -InfoBasePath "C:\Bases\MyDB" -Manual
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-publish.py" -InfoBasePath "~/bases/MyDB" -Manual
 ```

@@ -23,8 +23,8 @@ allowed-tools:
 | `Value` | Значение для операции |
 | `NoValidate` | Пропустить авто-валидацию |
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/subsystem-edit.ps1" -SubsystemPath '<path>' -Operation add-content -Value 'Catalog.Товары'
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/subsystem-edit.py" -SubsystemPath '<path>' -Operation add-content -Value 'Catalog.Товары'
 ```
 
 ## Операции
@@ -39,7 +39,7 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/subsystem-edit.ps1"
 
 ## Примеры
 
-```powershell
+```bash
 # Добавить объект в состав
 ... -SubsystemPath Subsystems/Продажи.xml -Operation add-content -Value "Document.Заказ"
 

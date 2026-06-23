@@ -1,16 +1,16 @@
 {
-  "v8path": "C:\\Program Files\\1cv8\\8.3.24.1691\\bin",
+  "v8path": "/opt/1cv8/8.3.27.2130",
   "databases": [
     {
       "id": "dev",
       "name": "Разработка",
       "type": "file",
-      "path": "C:\\Bases\\MyApp_Dev",
+      "path": "~/bases/dev",
       "user": "Администратор",
       "password": "",
       "aliases": ["dev", "разработка"],
       "branches": ["dev", "develop", "feature/*"],
-      "configSrc": "src\\cf",
+      "configSrc": "src/cf",
       "webUrl": "http://localhost:8081/dev"
     },
     {
@@ -26,8 +26,6 @@
     }
   ],
   "default": "dev",
-  "webPath": "C:\\tools\\apache24",
-  "ffmpegPath": "C:\\tools\\ffmpeg\\bin\\ffmpeg.exe",
   "tts": {
     "provider": "edge",
     "voice": "ru-RU-DmitryNeural"

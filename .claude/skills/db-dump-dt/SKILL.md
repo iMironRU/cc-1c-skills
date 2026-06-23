@@ -37,8 +37,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-dt.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-dump-dt.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -57,12 +57,12 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-dt.ps1" <п
 
 ## Примеры
 
-```powershell
+```bash
 # Выгрузка ИБ (файловая база)
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-dt.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -OutputFile "C:\backup\base.dt"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-dump-dt.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -OutputFile "C:\backup\base.dt"
 
 # Серверная база
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-dt.ps1" -InfoBaseServer "srv01" -InfoBaseRef "MyApp_Dev" -UserName "Admin" -Password "secret" -OutputFile "base.dt"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-dump-dt.py" -InfoBaseServer "srv01" -InfoBaseRef "MyApp_Dev" -UserName "Admin" -Password "secret" -OutputFile "base.dt"
 ```
 
 ## Связанные навыки

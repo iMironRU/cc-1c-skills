@@ -41,8 +41,8 @@ allowed-tools:
 
 Используй общий скрипт из epf-build:
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/../epf-build/scripts/epf-build.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/../epf-build/scripts/epf-build.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -62,10 +62,10 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/../epf-build/scripts/epf-bu
 
 ## Примеры
 
-```powershell
+```bash
 # Сборка отчёта (файловая база)
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/../epf-build/scripts/epf-build.ps1" -InfoBasePath "C:\Bases\MyDB" -SourceFile "src/МойОтчёт.xml" -OutputFile "build/МойОтчёт.erf"
+python3 "${CLAUDE_SKILL_DIR}/../epf-build/scripts/epf-build.py" -InfoBasePath "~/bases/MyDB" -SourceFile "src/МойОтчёт.xml" -OutputFile "build/МойОтчёт.erf"
 
 # Серверная база
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/../epf-build/scripts/epf-build.ps1" -InfoBaseServer "srv01" -InfoBaseRef "MyDB" -UserName "Admin" -Password "secret" -SourceFile "src/МойОтчёт.xml" -OutputFile "build/МойОтчёт.erf"
+python3 "${CLAUDE_SKILL_DIR}/../epf-build/scripts/epf-build.py" -InfoBaseServer "srv01" -InfoBaseRef "MyDB" -UserName "Admin" -Password "secret" -SourceFile "src/МойОтчёт.xml" -OutputFile "build/МойОтчёт.erf"
 ```

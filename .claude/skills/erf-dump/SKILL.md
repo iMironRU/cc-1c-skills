@@ -40,8 +40,8 @@ allowed-tools:
 
 Используй общий скрипт из epf-dump:
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/../epf-dump/scripts/epf-dump.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/../epf-dump/scripts/epf-dump.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -62,10 +62,10 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/../epf-dump/scripts/epf-dum
 
 ## Примеры
 
-```powershell
+```bash
 # Разборка отчёта (файловая база)
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/../epf-dump/scripts/epf-dump.ps1" -InfoBasePath "C:\Bases\MyDB" -InputFile "build/МойОтчёт.erf" -OutputDir "src"
+python3 "${CLAUDE_SKILL_DIR}/../epf-dump/scripts/epf-dump.py" -InfoBasePath "~/bases/MyDB" -InputFile "build/МойОтчёт.erf" -OutputDir "src"
 
 # Серверная база
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/../epf-dump/scripts/epf-dump.ps1" -InfoBaseServer "srv01" -InfoBaseRef "MyDB" -UserName "Admin" -Password "secret" -InputFile "build/МойОтчёт.erf" -OutputDir "src"
+python3 "${CLAUDE_SKILL_DIR}/../epf-dump/scripts/epf-dump.py" -InfoBaseServer "srv01" -InfoBaseRef "MyDB" -UserName "Admin" -Password "secret" -InputFile "build/МойОтчёт.erf" -OutputDir "src"
 ```

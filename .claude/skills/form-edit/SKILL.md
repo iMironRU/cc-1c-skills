@@ -28,8 +28,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/form-edit.ps1" -FormPath "<путь>" -JsonPath "<путь>"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/form-edit.py" -FormPath "<путь>" -JsonPath "<путь>"
 ```
 
 ## JSON формат

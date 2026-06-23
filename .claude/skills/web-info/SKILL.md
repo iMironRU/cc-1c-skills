@@ -25,8 +25,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-info.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-info.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -45,7 +45,7 @@ Port:   8081
 Module: C:/Program Files/1cv8/8.3.24.1691/bin/wsap24.dll
 
 === Опубликованные базы ===
-  mydb   http://localhost:8081/mydb   File="C:\Bases\MyDB";
+  mydb   http://localhost:8081/mydb   File="~/bases/MyDB";
 
 === Последние ошибки ===
 (пусто)
@@ -53,10 +53,10 @@ Module: C:/Program Files/1cv8/8.3.24.1691/bin/wsap24.dll
 
 ## Примеры
 
-```powershell
+```bash
 # Статус по умолчанию
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-info.ps1"
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-info.py"
 
 # Указать путь к Apache
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-info.ps1" -ApachePath "C:\tools\apache24"
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-info.py" -ApachePath "C:\tools\apache24"
 ```

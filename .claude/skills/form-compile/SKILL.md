@@ -27,12 +27,12 @@ allowed-tools:
 
 ## Команда
 
-```powershell
+```bash
 # Режим JSON DSL
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/form-compile.ps1" -JsonPath "<json>" -OutputPath "<Form.xml>"
+python3 "${CLAUDE_SKILL_DIR}/scripts/form-compile.py" -JsonPath "<json>" -OutputPath "<Form.xml>"
 
 # Режим from-object (объект и purpose выводятся из OutputPath; Document и Catalog)
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/form-compile.ps1" -FromObject -OutputPath "<.../TypePlural/ObjectName/Forms/FormName/Ext/Form.xml>"
+python3 "${CLAUDE_SKILL_DIR}/scripts/form-compile.py" -FromObject -OutputPath "<.../TypePlural/ObjectName/Forms/FormName/Ext/Form.xml>"
 ```
 
 ## JSON DSL — справка

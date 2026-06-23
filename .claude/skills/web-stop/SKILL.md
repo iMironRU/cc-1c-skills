@@ -25,8 +25,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-stop.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-stop.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -43,10 +43,10 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-stop.ps1" <па
 
 ## Примеры
 
-```powershell
+```bash
 # Остановить Apache
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-stop.ps1"
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-stop.py"
 
 # С указанием пути
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-stop.ps1" -ApachePath "C:\tools\apache24"
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-stop.py" -ApachePath "C:\tools\apache24"
 ```

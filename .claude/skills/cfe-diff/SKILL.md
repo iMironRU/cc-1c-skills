@@ -22,8 +22,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/cfe-diff.ps1" -ExtensionPath src -ConfigPath C:\cfsrc\erp -Mode A
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/cfe-diff.py" -ExtensionPath src -ConfigPath C:\cfsrc\erp -Mode A
 ```
 
 ## Mode A — обзор расширения
@@ -48,7 +48,7 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/cfe-diff.ps1" -Exte
 
 ## Примеры
 
-```powershell
+```bash
 # Обзор — что изменено в расширении
 ... -ExtensionPath src -ConfigPath C:\cfsrc\erp -Mode A
 

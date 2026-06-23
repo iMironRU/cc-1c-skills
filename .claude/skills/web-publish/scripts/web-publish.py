@@ -24,32 +24,8 @@ import zipfile
 
 import psutil
 
-
-def _find_project_v8path():
-    """Walk up from CWD to find .v8-project.json and read its v8path."""
-    d = os.getcwd()
-    while True:
-        pf = os.path.join(d, ".v8-project.json")
-        if os.path.isfile(pf):
-            try:
-                with open(pf, encoding="utf-8-sig") as f:
-                    data = json.load(f)
-                v = data.get("v8path")
-                if v:
-                    return v
-            except Exception:
-                pass
-            return None
-        parent = os.path.dirname(d)
-        if parent == d:
-            return None
-        d = parent
-
-
-def _version_key(p):
-    """Numeric sort key from version dir name (.../1cv8/<ver>/bin/1cv8.exe)."""
-    ver = os.path.basename(os.path.dirname(os.path.dirname(p)))
-    return [int(x) for x in re.findall(r"\d+", ver)]
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '_lib'))
+from v8_platform import resolve_v8path, detect_engine
 
 
 def get_our_httpd(httpd_exe_norm):
@@ -104,29 +80,17 @@ def main():
     args = parser.parse_args()
 
     # --- Resolve V8Path ---
-    v8_path = args.V8Path
-    if not v8_path:
-        v8_path = _find_project_v8path()
-    if not v8_path:
-        candidates = (
-            glob.glob(r'C:\Program Files\1cv8\*\bin\1cv8.exe')
-            + glob.glob(r'C:\Program Files (x86)\1cv8\*\bin\1cv8.exe')
-        )
-        if candidates:
-            best = max(candidates, key=_version_key)
-            v8_path = os.path.dirname(best)
-            ver = os.path.basename(os.path.dirname(v8_path))
-            print(f'Auto-selected platform {ver}: {v8_path}')
-        else:
-            print('Error: платформа 1С не найдена. Укажите -V8Path', file=sys.stderr)
-            sys.exit(1)
-    elif os.path.isfile(v8_path):
-        v8_path = os.path.dirname(v8_path)
+    v8_resolved = resolve_v8path(args.V8Path or None)
+    v8_path = os.path.dirname(v8_resolved)
 
-    # Validate wsap24.dll
-    wsap_dll = os.path.join(v8_path, 'wsap24.dll')
-    if not os.path.exists(wsap_dll):
-        print(f'Error: wsap24.dll не найден в {v8_path}', file=sys.stderr)
+    # Validate web module (wsap24.so on Mac/Linux, wsap24.dll on Windows)
+    if sys.platform == 'win32':
+        wsap_name = 'wsap24.dll'
+    else:
+        wsap_name = 'wsap24.so'
+    wsap_lib = os.path.join(v8_path, wsap_name)
+    if not os.path.exists(wsap_lib):
+        print(f'Error: {wsap_name} не найден в {v8_path}', file=sys.stderr)
         sys.exit(1)
 
     # --- Validate connection ---
@@ -147,7 +111,7 @@ def main():
     port = args.Port
 
     # --- Check / Install Apache ---
-    httpd_exe = os.path.join(apache_path, 'bin', 'httpd.exe')
+    httpd_exe = os.path.join(apache_path, 'bin', 'httpd')
 
     if not os.path.exists(httpd_exe):
         if args.Manual:

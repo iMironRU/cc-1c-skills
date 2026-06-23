@@ -37,8 +37,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-xml.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-xml.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -86,16 +86,16 @@ Documents/Заказ/Forms/ФормаДокумента.xml
 
 ## Примеры
 
-```powershell
+```bash
 # Полная загрузка
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-xml.ps1" -V8Path "C:\Program Files\1cv8\8.3.25.1257\bin" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -ConfigDir "C:\WS\cfsrc" -Mode Full
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-xml.py" -V8Path "C:\Program Files\1cv8\8.3.25.1257\bin" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -ConfigDir "C:\WS\cfsrc" -Mode Full
 
 # Частичная загрузка конкретных файлов
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-xml.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -ConfigDir "C:\WS\cfsrc" -Mode Partial -Files "Catalogs/Номенклатура.xml,Catalogs/Номенклатура/Ext/ObjectModule.bsl"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-xml.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -ConfigDir "C:\WS\cfsrc" -Mode Partial -Files "Catalogs/Номенклатура.xml,Catalogs/Номенклатура/Ext/ObjectModule.bsl"
 
 # Загрузка расширения
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-xml.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -ConfigDir "C:\WS\ext_src" -Mode Full -Extension "МоёРасширение"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-xml.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -ConfigDir "C:\WS\ext_src" -Mode Full -Extension "МоёРасширение"
 
 # Загрузка + обновление БД в одном запуске
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-load-xml.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -ConfigDir "C:\WS\cfsrc" -Mode Full -UpdateDB
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-load-xml.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -ConfigDir "C:\WS\cfsrc" -Mode Full -UpdateDB
 ```

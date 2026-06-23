@@ -23,7 +23,7 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/skd-validate.ps1" -TemplatePath "src/МойОтчёт/Templates/ОсновнаяСхема"
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/skd-validate.ps1" -TemplatePath "Catalogs/Номенклатура/Templates/СКД/Ext/Template.xml"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/skd-validate.py" -TemplatePath "src/МойОтчёт/Templates/ОсновнаяСхема"
+python3 "${CLAUDE_SKILL_DIR}/scripts/skd-validate.py" -TemplatePath "Catalogs/Номенклатура/Templates/СКД/Ext/Template.xml"
 ```

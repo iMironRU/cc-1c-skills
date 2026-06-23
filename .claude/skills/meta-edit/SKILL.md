@@ -17,14 +17,14 @@ allowed-tools:
 
 ### Inline mode (простые операции)
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/meta-edit.ps1" -ObjectPath "<path>" -Operation <op> -Value "<val>"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/meta-edit.py" -ObjectPath "<path>" -Operation <op> -Value "<val>"
 ```
 
 ### JSON mode (сложные/комбинированные)
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/meta-edit.ps1" -DefinitionFile "<json>" -ObjectPath "<path>"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/meta-edit.py" -DefinitionFile "<json>" -ObjectPath "<path>"
 ```
 
 | Параметр | Описание |
@@ -77,7 +77,7 @@ Batch через `;;` во всех операциях. Подробный си�
 
 ## Быстрые примеры
 
-```powershell
+```bash
 # Добавить реквизиты
 -Operation add-attribute -Value "Комментарий: Строка(200) ;; Сумма: Число(15,2) | index"
 

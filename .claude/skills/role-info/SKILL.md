@@ -21,8 +21,8 @@ allowed-tools:
 
 ## Запуск скрипта
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/role-info.ps1" -RightsPath <path> -OutFile <output.txt>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/role-info.py" -RightsPath <path> -OutFile <output.txt>
 ```
 
 ### Параметры
@@ -38,7 +38,7 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/role-info.ps1" -Rig
 **Важно:** Всегда используй `-OutFile` и читай результат через Read tool. Прямой вывод в консоль через bash ломает кириллицу.
 
 Для большой роли при усечении вывода:
-```powershell
+```bash
 ... -Offset 150            # пагинация: пропустить первые 150 строк
 ```
 

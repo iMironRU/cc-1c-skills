@@ -31,8 +31,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/meta-remove.ps1" -ConfigDir "<путь>" -Object "Catalog.Товары"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/meta-remove.py" -ConfigDir "<путь>" -Object "Catalog.Товары"
 ```
 
 ## Поддерживаемые типы
@@ -41,7 +41,7 @@ Catalog, Document, Enum, Constant, InformationRegister, AccumulationRegister, Ac
 
 ## Примеры
 
-```powershell
+```bash
 # Проверка ссылок + dry run
 ... -ConfigDir C:\WS\tasks\cfsrc\acc_8.3.24 -Object "Catalog.Устаревший" -DryRun
 

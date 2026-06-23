@@ -34,8 +34,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-update.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-update.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -74,13 +74,13 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-update.ps1" <п�
 
 ## Примеры
 
-```powershell
+```bash
 # Обычное обновление (файловая база)
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-update.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-update.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin"
 
 # Динамическое обновление (серверная база)
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-update.ps1" -InfoBaseServer "srv01" -InfoBaseRef "MyDB" -UserName "Admin" -Password "secret" -Dynamic "+"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-update.py" -InfoBaseServer "srv01" -InfoBaseRef "MyDB" -UserName "Admin" -Password "secret" -Dynamic "+"
 
 # Обновление расширения
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-update.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -Extension "МоёРасширение"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-update.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -Extension "МоёРасширение"
 ```

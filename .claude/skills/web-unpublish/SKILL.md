@@ -34,8 +34,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-unpublish.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-unpublish.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -50,13 +50,13 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-unpublish.ps1" 
 
 ## Примеры
 
-```powershell
+```bash
 # Удалить одну публикацию
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-unpublish.ps1" -AppName "bpdemo"
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-unpublish.py" -AppName "bpdemo"
 
 # Удалить все публикации
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-unpublish.ps1" -All
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-unpublish.py" -All
 
 # С указанием пути
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/web-unpublish.ps1" -AppName "mydb" -ApachePath "C:\tools\apache24"
+python3 "${CLAUDE_SKILL_DIR}/scripts/web-unpublish.py" -AppName "mydb" -ApachePath "C:\tools\apache24"
 ```

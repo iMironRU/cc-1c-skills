@@ -24,15 +24,15 @@ allowed-tools:
 | `Variant` | (опц.) Имя варианта настроек (умолч. первый) |
 | `NoSelection` | (опц.) Не добавлять поле в selection варианта |
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/skd-edit.ps1" -TemplatePath "<path>" -Operation <op> -Value "<value>"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/skd-edit.py" -TemplatePath "<path>" -Operation <op> -Value "<value>"
 ```
 
 ## Пакетный режим (batch)
 
 Несколько значений в одном вызове через разделитель `;;`:
 
-```powershell
+```bash
 -Operation add-field -Value "Цена: decimal(15,2) ;; Количество: decimal(15,3) ;; Сумма: decimal(15,2)"
 ```
 

@@ -70,13 +70,13 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/cfe-borrow.ps1" -ExtensionPath src -ConfigPath C:\cfsrc\erp -Object "Catalog.Контрагенты"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/cfe-borrow.py" -ExtensionPath src -ConfigPath C:\cfsrc\erp -Object "Catalog.Контрагенты"
 ```
 
 ## Примеры
 
-```powershell
+```bash
 # Заимствовать один объект
 ... -ExtensionPath src -ConfigPath C:\cfsrc\erp -Object "Catalog.Контрагенты"
 

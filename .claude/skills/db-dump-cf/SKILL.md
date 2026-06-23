@@ -34,8 +34,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-cf.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-dump-cf.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -56,13 +56,13 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-cf.ps1" <п
 
 ## Примеры
 
-```powershell
+```bash
 # Выгрузка конфигурации (файловая база)
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-cf.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -OutputFile "C:\backup\config.cf"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-dump-cf.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -OutputFile "C:\backup\config.cf"
 
 # Серверная база
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-cf.ps1" -InfoBaseServer "srv01" -InfoBaseRef "MyApp_Dev" -UserName "Admin" -Password "secret" -OutputFile "config.cf"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-dump-cf.py" -InfoBaseServer "srv01" -InfoBaseRef "MyApp_Dev" -UserName "Admin" -Password "secret" -OutputFile "config.cf"
 
 # Выгрузка расширения
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-cf.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -OutputFile "ext.cfe" -Extension "МоёРасширение"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-dump-cf.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -OutputFile "ext.cfe" -Extension "МоёРасширение"
 ```

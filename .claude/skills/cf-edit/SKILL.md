@@ -23,8 +23,8 @@ allowed-tools:
 | `DefinitionFile` | JSON-файл с массивом операций |
 | `NoValidate` | Пропустить авто-валидацию |
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/cf-edit.ps1" -ConfigPath '<path>' -Operation modify-property -Value 'Version=1.0.0.1'
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/cf-edit.py" -ConfigPath '<path>' -Operation modify-property -Value 'Version=1.0.0.1'
 ```
 
 ## Операции
@@ -44,7 +44,7 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/cf-edit.ps1" -Confi
 
 ## Примеры
 
-```powershell
+```bash
 # Изменить версию и поставщика
 ... -ConfigPath src -Operation modify-property -Value "Version=1.0.0.1 ;; Vendor=Фирма 1С"
 

@@ -30,8 +30,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-create.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-create.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -55,16 +55,16 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-create.ps1" <п�
 
 ## Примеры
 
-```powershell
+```bash
 # Создать файловую базу
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-create.ps1" -InfoBasePath "C:\Bases\NewDB"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-create.py" -InfoBasePath "~/bases/NewDB"
 
 # Создать серверную базу
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-create.ps1" -InfoBaseServer "srv01" -InfoBaseRef "MyApp_Test"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-create.py" -InfoBaseServer "srv01" -InfoBaseRef "MyApp_Test"
 
 # Создать из шаблона CF
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-create.ps1" -InfoBasePath "C:\Bases\NewDB" -UseTemplate "C:\Templates\config.cf"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-create.py" -InfoBasePath "~/bases/NewDB" -UseTemplate "~/templates/config.cf"
 
 # Создать и добавить в список баз
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-create.ps1" -InfoBasePath "C:\Bases\NewDB" -AddToList -ListName "Новая база"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-create.py" -InfoBasePath "~/bases/NewDB" -AddToList -ListName "Новая база"
 ```

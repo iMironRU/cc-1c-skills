@@ -22,8 +22,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/meta-compile.ps1" -JsonPath "<json>" -OutputDir "<ConfigDir>"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/meta-compile.py" -JsonPath "<json>" -OutputDir "<ConfigDir>"
 ```
 
 | Параметр | Описание |

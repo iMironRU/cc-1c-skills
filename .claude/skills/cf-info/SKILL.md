@@ -22,8 +22,8 @@ allowed-tools:
 | `Limit` / `Offset` | Пагинация (по умолчанию 150 строк) |
 | `OutFile` | Записать результат в файл (UTF-8 BOM) |
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/cf-info.ps1" -ConfigPath "<путь>"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/cf-info.py" -ConfigPath "<путь>"
 ```
 
 ## Три режима
@@ -36,7 +36,7 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/cf-info.ps1" -Confi
 
 ## Примеры
 
-```powershell
+```bash
 # Обзор пустой конфигурации
 ... -ConfigPath src
 

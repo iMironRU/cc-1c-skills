@@ -28,8 +28,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/mxl-decompile.ps1" -TemplatePath "<путь>/Template.xml" [-OutputPath "<путь>.json"]
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/mxl-decompile.py" -TemplatePath "<путь>/Template.xml" [-OutputPath "<путь>.json"]
 ```
 
 ## Рабочий процесс

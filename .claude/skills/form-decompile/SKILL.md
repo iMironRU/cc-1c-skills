@@ -30,8 +30,8 @@ allowed-tools:
 | `FormPath` | Путь к Form.xml (обязательный) |
 | `OutputPath` | Путь к выходному JSON. Если не задан — JSON в stdout |
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/form-decompile.ps1" -FormPath "<Form.xml>" -OutputPath "<out.json>"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/form-decompile.py" -FormPath "<Form.xml>" -OutputPath "<out.json>"
 ```
 
 ## Что получаешь

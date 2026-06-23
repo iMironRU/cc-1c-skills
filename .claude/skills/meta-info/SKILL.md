@@ -22,8 +22,8 @@ allowed-tools:
 | `Limit` / `Offset` | Пагинация (по умолчанию 150 строк) |
 | `OutFile` | Записать результат в файл (UTF-8 BOM) |
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/meta-info.ps1" -ObjectPath "<путь>"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/meta-info.py" -ObjectPath "<путь>"
 ```
 
 ## Три режима
@@ -45,7 +45,7 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/meta-info.ps1" -Obj
 
 ## Примеры
 
-```powershell
+```bash
 # Справочник — overview
 ... -ObjectPath Catalogs/Валюты/Валюты.xml
 

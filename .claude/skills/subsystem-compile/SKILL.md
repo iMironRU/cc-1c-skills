@@ -23,8 +23,8 @@ allowed-tools:
 | `Parent` | Путь к XML родительской подсистемы (для вложенных) |
 | `NoValidate` | Пропустить авто-валидацию |
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/subsystem-compile.ps1" -Value '<json>' -OutputDir '<ConfigDir>'
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/subsystem-compile.py" -Value '<json>' -OutputDir '<ConfigDir>'
 ```
 
 ## JSON-определение
@@ -46,7 +46,7 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/subsystem-compile.p
 
 ## Примеры
 
-```powershell
+```bash
 # Минимальная подсистема
 ... -Value '{"name":"Тест"}' -OutputDir config/
 

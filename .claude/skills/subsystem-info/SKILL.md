@@ -22,8 +22,8 @@ allowed-tools:
 | `Limit` / `Offset` | Пагинация (по умолчанию 150 строк) |
 | `OutFile` | Записать результат в файл (UTF-8 BOM) |
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/subsystem-info.ps1" -SubsystemPath "<путь>"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/subsystem-info.py" -SubsystemPath "<путь>"
 ```
 
 ## Пять режимов
@@ -38,7 +38,7 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/subsystem-info.ps1"
 
 ## Примеры
 
-```powershell
+```bash
 # Обзор подсистемы
 ... -SubsystemPath Subsystems/Продажи.xml
 

@@ -66,7 +66,7 @@ def main():
         conf_content = f.read()
 
     # --- Helper: our httpd process ---
-    httpd_exe = os.path.join(apache_path, 'bin', 'httpd.exe')
+    httpd_exe = os.path.join(apache_path, 'bin', 'httpd')
     if os.path.exists(httpd_exe):
         httpd_exe_norm = os.path.normcase(os.path.normpath(os.path.realpath(httpd_exe)))
     else:

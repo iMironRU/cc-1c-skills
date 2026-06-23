@@ -23,7 +23,7 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/cf-validate.ps1" -ConfigPath "upload/cfempty"
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/cf-validate.ps1" -ConfigPath "upload/cfempty/Configuration.xml"
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/cf-validate.py" -ConfigPath "upload/cfempty"
+python3 "${CLAUDE_SKILL_DIR}/scripts/cf-validate.py" -ConfigPath "upload/cfempty/Configuration.xml"
 ```

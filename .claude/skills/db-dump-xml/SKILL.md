@@ -36,8 +36,8 @@ allowed-tools:
 
 ## Команда
 
-```powershell
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-xml.ps1" <параметры>
+```bash
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-dump-xml.py" <параметры>
 ```
 
 ### Параметры скрипта
@@ -72,19 +72,19 @@ powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-xml.ps1" <�
 
 ## Примеры
 
-```powershell
+```bash
 # Полная выгрузка (файловая база)
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-xml.ps1" -V8Path "C:\Program Files\1cv8\8.3.25.1257\bin" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -ConfigDir "C:\WS\cfsrc" -Mode Full
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-dump-xml.py" -V8Path "C:\Program Files\1cv8\8.3.25.1257\bin" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -ConfigDir "C:\WS\cfsrc" -Mode Full
 
 # Инкрементальная выгрузка
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-xml.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -ConfigDir "C:\WS\cfsrc" -Mode Changes
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-dump-xml.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -ConfigDir "C:\WS\cfsrc" -Mode Changes
 
 # Частичная выгрузка
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-xml.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -ConfigDir "C:\WS\cfsrc" -Mode Partial -Objects "Справочник.Номенклатура,Документ.Заказ"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-dump-xml.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -ConfigDir "C:\WS\cfsrc" -Mode Partial -Objects "Справочник.Номенклатура,Документ.Заказ"
 
 # Серверная база
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-xml.ps1" -InfoBaseServer "srv01" -InfoBaseRef "MyApp_Dev" -UserName "Admin" -Password "secret" -ConfigDir "C:\WS\cfsrc" -Mode Full
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-dump-xml.py" -InfoBaseServer "srv01" -InfoBaseRef "MyApp_Dev" -UserName "Admin" -Password "secret" -ConfigDir "C:\WS\cfsrc" -Mode Full
 
 # Выгрузка расширения
-powershell.exe -NoProfile -File "${CLAUDE_SKILL_DIR}/scripts/db-dump-xml.ps1" -InfoBasePath "C:\Bases\MyDB" -UserName "Admin" -ConfigDir "C:\WS\ext_src" -Mode Full -Extension "МоёРасширение"
+python3 "${CLAUDE_SKILL_DIR}/scripts/db-dump-xml.py" -InfoBasePath "~/bases/MyDB" -UserName "Admin" -ConfigDir "C:\WS\ext_src" -Mode Full -Extension "МоёРасширение"
 ```
