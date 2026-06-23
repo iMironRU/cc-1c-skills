@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '_lib'))
 from v8_platform import resolve_v8path, find_project_root, load_v8_project
 
 
-BSL_LS_VERSION = "0.24.4"
+BSL_LS_VERSION = "1.0.1"
 BSL_LS_REPO = "1c-syntax/bsl-language-server"
 
 
@@ -49,14 +49,24 @@ def get_bsl_ls_status():
     if os.path.isfile(local_path):
         return True, local_path
 
+    # VS Code extension native binary (1c-syntax.language-1c-bsl)
+    vsc_pattern = os.path.expanduser(
+        "~/Library/Application Support/Code/User/globalStorage/"
+        "1c-syntax.language-1c-bsl/bsl-language-server/v*/"
+        "bsl-language-server.app/Contents/MacOS/bsl-language-server"
+    )
+    vsc_matches = sorted(glob.glob(vsc_pattern))
+    if vsc_matches:
+        return True, vsc_matches[-1]
+
     jar_patterns = [
-        os.path.expanduser("~/.local/lib/bsl-language-server*.jar"),
-        os.path.expanduser("~/.local/share/bsl-language-server/bsl-language-server*.jar"),
+        os.path.expanduser("~/.local/lib/bsl-language-server*-exec.jar"),
+        os.path.expanduser("~/.local/share/bsl-language-server/bsl-language-server*-exec.jar"),
     ]
     for pattern in jar_patterns:
-        jars = glob.glob(pattern)
+        jars = sorted(glob.glob(pattern))
         if jars:
-            return True, max(jars)
+            return True, jars[-1]
 
     return False, None
 
