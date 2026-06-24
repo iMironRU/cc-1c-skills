@@ -110,7 +110,13 @@ class Config:
         for tag in [f'{obj_type}', f'{{http://v8.1c.ru/8.3/MDClasses}}{obj_type}']:
             el = root.find(f'.//{tag}/Properties') or root.find(f'.//{tag}')
             if el is not None:
-                props = el.find('Properties') if el.tag.endswith(obj_type) else el
+                ns = 'http://v8.1c.ru/8.3/MDClasses'
+                if el.tag.endswith(obj_type):
+                    props = el.find(f'{{{ns}}}Properties')
+                    if props is None:
+                        props = el.find('Properties')
+                else:
+                    props = el
                 return props
         # Fallback: first child's Properties
         for child in root:
@@ -201,7 +207,8 @@ class Config:
             else:
                 root = ET.parse(p).getroot()
                 self._dt_cache[dt_name] = [
-                    t.text for t in root.iter('Type') if t.text and '.' in t.text
+                    t.text for t in root.iter('{http://v8.1c.ru/8.1/data/core}Type')
+                    if t.text and '.' in t.text
                 ]
         return self._dt_cache[dt_name]
 
