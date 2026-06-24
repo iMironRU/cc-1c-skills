@@ -230,6 +230,17 @@ class Config:
     def common_module(self, name: str) -> str:
         return self._bsl(self.src / 'CommonModules' / name / 'Ext' / 'Module.bsl')
 
+    def all_common_modules(self):
+        """Yield (name, bsl_text) for all common modules."""
+        d = self.src / 'CommonModules'
+        if not d.is_dir():
+            return
+        for mod_dir in d.iterdir():
+            if mod_dir.is_dir():
+                bsl = self._bsl(mod_dir / 'Ext' / 'Module.bsl')
+                if bsl:
+                    yield mod_dir.name, bsl
+
     def form_modules(self, obj_type: str, name: str) -> dict:
         """Return dict {form_name: bsl_text} for all forms of an object."""
         d = OBJ_DIRS.get(obj_type, obj_type + 's')
@@ -656,6 +667,13 @@ class UpdateVersionChecker(BaseChecker):
 
         has_handler = any(self._has_call(bsl, p) for p in self.REQUIRED_CALLS)
         if not has_handler:
+            # Конфигурации часто регистрируют обработчики в отдельном модуле
+            for mod_name, mod_bsl in cfg.all_common_modules():
+                if ('Обновление' in mod_name and 'Переопределяемый' not in mod_name
+                        and any(self._has_call(mod_bsl, p) for p in self.REQUIRED_CALLS)):
+                    has_handler = True
+                    break
+        if not has_handler:
             results.append(self.warn(self.name,
                 'CommonModule.ОбновлениеИнформационнойБазыПереопределяемый',
                 'Не найден вызов регистрации обработчиков обновления'))
@@ -690,10 +708,10 @@ class ForbiddenDateChecker(BaseChecker):
         if not bsl:
             return []
 
-        if not self._has_call(bsl, r'ДатыЗапретаИзменения\.ПриЗаполненииИсточниковДанных'):
+        if not self._has_proc(bsl, 'ЗаполнитьИсточникиДанныхДляПроверкиЗапретаИзменения'):
             results.append(self.warn(self.name,
                 'CommonModule.ДатыЗапретаИзмененияПереопределяемый',
-                'Нет вызова ДатыЗапретаИзменения.ПриЗаполненииИсточниковДанных'))
+                'Нет процедуры ЗаполнитьИсточникиДанныхДляПроверкиЗапретаИзменения'))
 
         return results
 
