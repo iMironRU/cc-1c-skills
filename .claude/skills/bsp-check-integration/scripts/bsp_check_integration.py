@@ -265,7 +265,8 @@ class Config:
         """Return (form_name, bsl_text) for the object form (ФормаОбъекта / ФормаЭлемента)."""
         for form_forms in self.form_modules(obj_type, name).items():
             fn = form_forms[0].lower()
-            if 'объект' in fn or 'элемент' in fn or 'formelement' in fn or 'formobject' in fn:
+            if ('объект' in fn or 'элемент' in fn or 'formelement' in fn or 'formobject' in fn
+                    or 'документ' in fn):
                 return form_forms
         # Fallback: first form
         forms = self.form_modules(obj_type, name)
