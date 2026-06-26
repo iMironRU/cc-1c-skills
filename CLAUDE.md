@@ -24,7 +24,9 @@ ln -s ~/Documents/github_dev/1C2Claude/.claude/skills <project>/.claude/skills
   bsp-merge/           # слияние с БСП через MergeCfg
   bsp-attach-files/    # создание справочника присоединённых файлов
   bsp-fill-types/      # заполнение определяемых типов из JSON
+  bsp-check-integration/ # статический анализ внедрения подсистем БСП
   cf-sort-children/    # сортировка ChildObjects в Configuration.xml
+  remote-ib/           # деплой CF/CFE на удалённую Windows ИБ через AgentMode
   ... (80+ скиллов)
 ```
 

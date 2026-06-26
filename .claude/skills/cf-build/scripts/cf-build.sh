@@ -7,14 +7,15 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 ROOT="$PWD"
 
-SRC="" OUTF="" EXT="" TIMEOUT=300
+SRC="" OUTF="" EXT="" TIMEOUT=300 PARENT_CF=""
 
 while [[ $# -gt 0 ]]; do
   case $1 in
-    --src)       SRC="$2"; shift 2;;
-    --out)       OUTF="$2"; shift 2;;
-    --extension) EXT="$2"; shift 2;;
-    --timeout)   TIMEOUT="$2"; shift 2;;
+    --src)        SRC="$2"; shift 2;;
+    --out)        OUTF="$2"; shift 2;;
+    --extension)  EXT="$2"; shift 2;;
+    --timeout)    TIMEOUT="$2"; shift 2;;
+    --parent-cf)  PARENT_CF="$2"; shift 2;;
     *) echo "Unknown: $1"; exit 1;;
   esac
 done
@@ -55,8 +56,18 @@ rm -rf "$BUILDIB"; mkdir -p "$BUILDIB" "$(dirname "$LOG")"
 echo "[1/4 create-ib]"
 guard "$V8" CREATEINFOBASE File="$BUILDIB" /DisableStartupDialogs >/dev/null
 
+# If parent .cf is provided, load it first so borrowed objects are resolvable
+if [ -n "$PARENT_CF" ]; then
+    test -f "$PARENT_CF" || { echo "Error: parent-cf не найден: $PARENT_CF"; exit 1; }
+    echo "[1.5/4 load-parent] $PARENT_CF"
+    guard "$V8" DESIGNER /F"$BUILDIB" /LoadCfg "$PARENT_CF" /UpdateDBCfg /DisableStartupDialogs /Out "$LOG" >/dev/null
+fi
+
 echo "[2/4 load] $SRC"
-if [ -n "$EXT" ]; then
+if [ -n "$EXT" ] && [ -n "$PARENT_CF" ]; then
+    # With parent config loaded, skip /UpdateDBCfg to avoid borrowed-object UUID conflict check
+    guard "$V8" DESIGNER /F"$BUILDIB" /LoadConfigFromFiles "$SRC" -Extension "$EXT" /DisableStartupDialogs /Out "$LOG" >/dev/null
+elif [ -n "$EXT" ]; then
     guard "$V8" DESIGNER /F"$BUILDIB" /LoadConfigFromFiles "$SRC" -Extension "$EXT" /UpdateDBCfg /DisableStartupDialogs /Out "$LOG" >/dev/null
 else
     guard "$V8" DESIGNER /F"$BUILDIB" /LoadConfigFromFiles "$SRC" /UpdateDBCfg /DisableStartupDialogs /Out "$LOG" >/dev/null

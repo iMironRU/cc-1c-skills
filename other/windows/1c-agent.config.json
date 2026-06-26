@@ -1,0 +1,14 @@
+{
+  "_comment": "Конфиг агента 1С для Windows. Скопировать рядом со скриптом start-1c-agent.ps1",
+  "v8path": "C:\\Program Files\\1cv8\\8.3.XX.XXXX\\bin\\1cv8.exe",
+  "ib_path": "D:\\bases\\myproject",
+  "ib_user": "Администратор",
+  "ib_password": "",
+  "agent_port": 1543,
+  "agent_base_dir": "D:\\workspace\\myproject",
+  "ssh_public_key_file": "C:\\Users\\admin\\.ssh\\authorized_keys_1c",
+  "apache_config_dir": "C:\\Apache24\\conf\\extra",
+  "apache_exe": "C:\\Apache24\\bin\\httpd.exe",
+  "web_app_name": "myproject",
+  "web_dir": "C:\\Apache24\\htdocs"
+}
